@@ -1,0 +1,40 @@
+## automatically generated CMT requirements file
+package btagIBLAnalysis
+author  marx
+
+## for athena policies: this has to be the first use statement
+use AtlasPolicy 	AtlasPolicy-*
+
+## for gaudi tools, services and objects
+use GaudiInterface 	GaudiInterface-* 	External
+private
+use AthenaBaseComps AthenaBaseComps-* Control
+end_private
+
+## put here your package dependencies...
+
+##
+
+branches src src/components doc python share
+
+private
+use  ParticleJetTools	ParticleJetTools-*	PhysicsAnalysis/AnalysisCommon
+use  xAODEventInfo	xAODEventInfo-*		Event/xAOD
+use  xAODJet		xAODJet-*		Event/xAOD
+use  xAODTruth		xAODTruth-*		Event/xAOD
+use  xAODTracking	xAODTracking-*		Event/xAOD
+use  xAODBTagging       xAODBTagging-*          Event/xAOD
+use  AtlasROOT 		AtlasROOT-* 		External
+use  JetInterface       JetInterface-*		Reconstruction/Jet
+use  JetCalibTools      JetCalibTools-*		Reconstruction/Jet
+
+## default is to make component library
+library btagIBLAnalysis *.cxx components/*.cxx
+
+apply_pattern component_library
+apply_pattern declare_joboptions files="*.py"
+apply_pattern declare_python_modules files="*.py"
+
+end_private
+
+
