@@ -1,0 +1,35 @@
+================
+TODO for FitFarm
+================
+
+********
+Features
+********
+
+General:
+- add a flag to tell Controller that FitServer is ready to receive data (luckily, this has just magically worked up to now)
+- clean abort scan option (e.g. if scanid or pixel mismatch, reset network, clean buffers ...)
+- complain about missing .root file for slave emulator mode
+
+PixFitInstanceConfig:
+- get full ROD/fitfarm configuration from db (already started in RC5 pit branch but not tested)
+
+PixFitAssembler: 
+- fix ToT sigma (and figure out how to compute a sensible ToT sigma in SHORT_TOT)
+
+*******
+Changes
+*******
+
+*******
+Design
+*******
+
+General:
+- error handling and correctly resetting after failures (sockets, wrong data format) (PixFitNet and ?)
+
+PixFitNet:
+- dtor: close connection
+
+RawHisto:
+- functionality to access pixel/bin values in an array like manner
